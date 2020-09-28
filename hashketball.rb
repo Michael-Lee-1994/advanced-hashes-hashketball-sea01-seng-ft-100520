@@ -149,14 +149,14 @@ def shoe_size(name)
 end
 
 def team_colors(team_name)
-  game_hash.each do |side, team|
-    return game_hash[side][:colors] if team[:team_name] == team_name
+  game_hash.each do |side, keys|
+    return game_hash[side][:colors] if keys[:team_name] == team_name
   end
 end
 
 def team_names
-   game_hash.collect do |side, team|
-    team[:team_name]
+   game_hash.collect do |side, keys|
+    keys[:team_name]
   end
 end
 
