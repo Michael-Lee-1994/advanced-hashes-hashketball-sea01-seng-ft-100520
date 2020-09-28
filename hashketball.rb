@@ -180,18 +180,11 @@ def player_numbers(team_name)
 end
 
 def player_stats(name)
-  stats_hash = {}
-  game_hash.collect do |side, team|
-    team.each do |attribute, data|
-      next unless attribute == :players
-
-      game_hash[side][attribute].each do |player|
-        next unless player[:player_name] == name
-        stats_hash = player.delete_if do |k, v|
-          k == :player_name
-        end
+  game_hash.each do |both_teams, keys|
+    keys[:players].each do |player|  
+      if player[:player_name] == name
+        return player
       end
-    end
-  end
-  stats_hash
+    end  
+  end    
 end
