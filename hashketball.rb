@@ -179,22 +179,22 @@ def player_numbers(team_name)
   numbers
 end
 
-def player_stats(name)
-  stats_hash = {}
-  game_hash.collect do |side, team|
-    team.each do |attribute, data|
-      next unless attribute == :players
+# def player_stats(name)
+#   stats_hash = {}
+#   game_hash.collect do |side, team|
+#     team.each do |attribute, data|
+#       next unless attribute == :players
 
-      game_hash[side][attribute].each do |player|
-        next unless player[:player_name] == name
-        stats_hash = player.delete_if do |k, v|
-          k == :player_name
-        end
-      end
-    end
-  end
-  stats_hash
-end
+#       game_hash[side][attribute].each do |player|
+#         next unless player[:player_name] == name
+#         stats_hash = player.delete_if do |k, v|
+#           k == :player_name
+#         end
+#       end
+#     end
+#   end
+#   stats_hash
+# end
 
 def player_stats(name)
   game_hash.each do |side, team|
