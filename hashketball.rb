@@ -180,7 +180,7 @@ def player_numbers(team_name)
 end
 
 def player_stats(name)
-  game_hash.each do |both_teams, keys|
+  game_hash.each do |teams, keys|
     keys[:players].each do |player|  
       if player[:player_name] == name
         return player
